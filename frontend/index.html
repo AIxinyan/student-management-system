@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息管理系统</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .loading {
+            text-align: center;
+            color: white;
+        }
+        .loading h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <h1>🎓 学生信息管理系统</h1>
+        <div class="spinner"></div>
+        <p>正在跳转...</p>
+    </div>
+    
+    <script>
+        // 每次运行都回到登录界面，清除之前的登录状态
+        localStorage.removeItem('currentUser');
+        
+        // 跳转到登录页
+        window.location.href = 'login.html';
+    </script>
+</body>
+</html>

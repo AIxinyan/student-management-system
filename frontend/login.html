@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 学生信息管理系统</title>
+    <link rel="stylesheet" href="auth-styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1>🎓 学生信息管理系统</h1>
+                <p class="subtitle">Student Information Management System</p>
+            </div>
+
+            <!-- 登录类型选择 -->
+            <div class="login-type-selector">
+                <button class="type-btn active" data-type="user" id="userLoginBtn">
+                    👤 学生登录
+                </button>
+                <button class="type-btn" data-type="admin" id="adminLoginBtn">
+                    👨‍💼 管理员登录
+                </button>
+            </div>
+
+            <!-- 登录表单 -->
+            <form id="loginForm" class="auth-form">
+                <input type="hidden" id="loginType" value="user">
+                
+                <div class="form-group">
+                    <label for="username">
+                        <span class="icon">👤</span>
+                        <span id="usernameLabel">学生账号</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        required 
+                        placeholder="请输入用户名"
+                        autocomplete="username"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <span class="icon">🔒</span>
+                        密码
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        required 
+                        placeholder="请输入密码"
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <div class="admin-hint" id="adminHint" style="display: none;">
+                    <p>💡 管理员默认账号：root / 000000</p>
+                </div>
+
+                <button type="submit" class="btn btn-primary">登录</button>
+
+                <div class="auth-footer" id="registerLink">
+                    <p>还没有账号？<a href="register.html">立即注册</a></p>
+                    <p><a href="index.html">🏠 返回首页</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 提示消息 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生界面 - 学生信息管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 学生信息管理系统</h1>
+            <p class="subtitle">学生界面 - Student Panel</p>
+            <div class="user-info">
+                <span id="welcomeText">欢迎</span>
+                <button class="btn-logout" onclick="logout()">退出登录</button>
+                <button class="btn-logout" onclick="window.location.href='index.html'">🏠 首页</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- 筛选功能 -->
+            <section class="filter-section">
+                <h2>🔍 筛选学生</h2>
+                <div class="filter-group">
+                    <div class="form-group">
+                        <label for="filterClass">班级</label>
+                        <input type="text" id="filterClass" placeholder="输入班级筛选">
+                    </div>
+                    <div class="form-group">
+                        <label for="filterMinScore">最低分</label>
+                        <input type="number" id="filterMinScore" min="0" max="100" placeholder="最低分">
+                    </div>
+                    <div class="form-group">
+                        <label for="filterMaxScore">最高分</label>
+                        <input type="number" id="filterMaxScore" min="0" max="100" placeholder="最高分">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-primary" id="filterBtn">筛选</button>
+                        <button class="btn btn-secondary" id="resetFilterBtn">重置</button>
+                        <button class="btn btn-ai" id="analysisBtn">🤖 AI 分析报告</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 学生列表（只读） -->
+            <section class="table-section">
+                <h2>📊 学生列表（只读模式）</h2>
+                <div class="readonly-notice">
+                    <p>ℹ️ 您当前处于学生模式，只能查看数据，无法进行修改操作</p>
+                </div>
+                <div class="table-container">
+                    <table id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>学号</th>
+                                <th>班级</th>
+                                <th>成绩</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody">
+                            <tr>
+                                <td colspan="5" class="no-data">暂无数据</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- AI 分析报告 -->
+            <section class="analysis-section" id="analysisSection" style="display: none;">
+                <h2>🤖 AI 成绩分析报告</h2>
+                <div id="analysisContent"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 学生信息管理系统 | Powered by Node.js + MongoDB</p>
+        </footer>
+    </div>
+
+    <!-- 提示消息 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="user.js"></script>
+</body>
+</html>

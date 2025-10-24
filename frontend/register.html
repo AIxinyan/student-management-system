@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 学生信息管理系统</title>
+    <link rel="stylesheet" href="auth-styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1>🎓 学生注册</h1>
+                <p class="subtitle">Student Registration</p>
+            </div>
+
+            <div class="info-box">
+                <p>💡 注意事项：</p>
+                <ul>
+                    <li>注册的用户名必须为系统已录入的学生姓名</li>
+                    <li>密码长度至少6位</li>
+                    <li>注册成功后将自动跳转到登录页面</li>
+                </ul>
+            </div>
+
+            <!-- 注册表单 -->
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">
+                        <span class="icon">👤</span>
+                        学生姓名（用户名）
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        required 
+                        placeholder="请输入您的真实姓名"
+                        autocomplete="username"
+                    >
+                    <small class="form-hint">必须是系统中已录入的学生姓名</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <span class="icon">🔒</span>
+                        密码
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        required 
+                        minlength="6"
+                        placeholder="请输入密码（至少6位）"
+                        autocomplete="new-password"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <span class="icon">🔒</span>
+                        确认密码
+                    </label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        required 
+                        minlength="6"
+                        placeholder="请再次输入密码"
+                        autocomplete="new-password"
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary">注册</button>
+
+                <div class="auth-footer">
+                    <p>已有账号？<a href="login.html">立即登录</a></p>
+                    <p><a href="index.html">🏠 返回首页</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 提示消息 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="register.js"></script>
+</body>
+</html>

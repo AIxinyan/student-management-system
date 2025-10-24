@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员界面 - AI 辅助学生信息管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 AI 辅助学生信息管理系统</h1>
+            <p class="subtitle">管理员界面 - Administrator Panel</p>
+            <div class="user-info">
+                <span id="welcomeText">欢迎，管理员</span>
+                <button class="btn-logout" onclick="logout()">退出登录</button>
+                <button class="btn-logout" onclick="window.location.href='index.html'">🏠 首页</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- 添加/编辑学生表单 -->
+            <section class="form-section">
+                <h2 id="form-title">📝 添加学生信息</h2>
+                <form id="studentForm">
+                    <input type="hidden" id="studentIdHidden">
+                    <div class="form-group">
+                        <label for="name">姓名 *</label>
+                        <input type="text" id="name" required placeholder="请输入学生姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentId">学号 *</label>
+                        <input type="text" id="studentId" required placeholder="请输入学号">
+                    </div>
+                    <div class="form-group">
+                        <label for="class">班级 *</label>
+                        <input type="text" id="class" required placeholder="请输入班级">
+                    </div>
+                    <div class="form-group">
+                        <label for="score">成绩 *</label>
+                        <input type="number" id="score" required min="0" max="100" placeholder="请输入成绩 (0-100)">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">提交</button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">取消</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 筛选功能 -->
+            <section class="filter-section">
+                <h2>🔍 筛选学生</h2>
+                <div class="filter-group">
+                    <div class="form-group">
+                        <label for="filterClass">班级</label>
+                        <input type="text" id="filterClass" placeholder="输入班级筛选">
+                    </div>
+                    <div class="form-group">
+                        <label for="filterMinScore">最低分</label>
+                        <input type="number" id="filterMinScore" min="0" max="100" placeholder="最低分">
+                    </div>
+                    <div class="form-group">
+                        <label for="filterMaxScore">最高分</label>
+                        <input type="number" id="filterMaxScore" min="0" max="100" placeholder="最高分">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-primary" id="filterBtn">筛选</button>
+                        <button class="btn btn-secondary" id="resetFilterBtn">重置</button>
+                        <button class="btn btn-ai" id="analysisBtn">🤖 AI 分析报告</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 学生列表 -->
+            <section class="table-section">
+                <h2>📊 学生列表</h2>
+                <div class="table-container">
+                    <table id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>学号</th>
+                                <th>班级</th>
+                                <th>成绩</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody">
+                            <tr>
+                                <td colspan="6" class="no-data">暂无数据</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- AI 分析报告 -->
+            <section class="analysis-section" id="analysisSection" style="display: none;">
+                <h2>🤖 AI 成绩分析报告</h2>
+                <div id="analysisContent"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 AI 辅助学生信息管理系统 | Powered by Node.js + MongoDB</p>
+        </footer>
+    </div>
+
+    <!-- 提示消息 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
